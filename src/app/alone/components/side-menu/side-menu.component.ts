@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MapsRoutingModule } from '../../../maps/maps-routing.module';
+import { RouterModule } from '@angular/router';
 
 interface MenuItem {
   name: string,
@@ -6,13 +9,15 @@ interface MenuItem {
 }
 
 @Component({
-  selector: 'maps-side-menu',
+  standalone: true,
+  selector: 'side-menu',
+  imports: [CommonModule, RouterModule],
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.css'
 })
 export class SideMenuComponent {
 
-  public menuItems: MenuItem[] = [ 
+  public menuItems: MenuItem[] = [
     {
       route: '/maps/fullscreen', name: 'FullScreen'
     },
@@ -24,6 +29,10 @@ export class SideMenuComponent {
     },
     {
       route: '/maps/properties', name: 'Properties'
+    },
+    {
+      route: '/alone',
+      name: 'AlonePage'
     }
   ]
 }
